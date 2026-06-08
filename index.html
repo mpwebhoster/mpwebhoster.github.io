@@ -80,8 +80,6 @@
           target: "device",
           section: section,
         });
-        if id === "sms" { 
-          window.alert("hi :)");}
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
@@ -95,6 +93,8 @@
       "click",
       (e) => {
         var id = e.target.id;
+        if id === "sms" { 
+          window.alert("hi :)");}
         if (id) openSettings(id);
       },
       true
