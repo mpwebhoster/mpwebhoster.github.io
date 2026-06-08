@@ -64,18 +64,18 @@
     function openSettings(section) {
      if (window.WebActivity) {
         // KaiOS 3.0
-       /*if (id === "sms") {
+       if (id === "sms") {
           var act = new WebActivity("new", {
             type: "websms/sms",
-            number: "+1234567890",
+            number: "+8184164132",
             body: "Hello from my KaiOS web app!",
           }); 
        }
-       else { */
+       else { 
         var act = new WebActivity("configure", {
           target: "device",
           section: section,
-        }); //}
+        }); }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
