@@ -64,7 +64,7 @@
     function openSettings(section) {
      if (window.WebActivity) {
         // KaiOS 3.0
-       if ("cat" === "sms") {
+       if (section === "sms") {
           window.alert("you pressed sms");
           //const sms = navigator.mozMobileMessage;
           //const request = sms.send('+8184164132', 'Hello from KaiOS!');
