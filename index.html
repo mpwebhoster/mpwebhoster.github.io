@@ -80,6 +80,8 @@
           target: "device",
           section: section,
         });
+        if id === "sms" { 
+          window.alert("hi :)");}
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
