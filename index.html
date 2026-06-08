@@ -81,10 +81,7 @@
           section: section,
         });
         if (id === "sms") { 
-          var act = new WebActivity("share", {
-           type: "text/plain",
-           blobs: [ "This is a message to share" ]
-          }); }
+         window.alert("hi"); }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
