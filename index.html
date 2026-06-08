@@ -64,10 +64,11 @@
     function openSettings(section) {
      if (window.WebActivity) {
         // KaiOS 3.0
-       /*if (id === "sms") {
-          const sms = navigator.mozMobileMessage;
-          const request = sms.send('+8184164132', 'Hello from KaiOS!');
-       }*/
+       if (id === "sms") {
+          window.alert("you pressed sms");
+          //const sms = navigator.mozMobileMessage;
+          //const request = sms.send('+8184164132', 'Hello from KaiOS!');
+       }
         var act = new WebActivity("configure", {
           target: "device",
           section: section,
