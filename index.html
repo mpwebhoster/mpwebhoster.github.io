@@ -76,16 +76,16 @@
         };
       } else if (window.WebActivity) {
         // KaiOS 3.0
-        var act = new WebActivity("configure", {
-          target: "device",
-          section: section,
-        });
         if (id === "sms") {
           var act = new WebActivity("share", {
             type: "text/plain",
             blobs: [ "This is a message to share" ],
-          };
-        }
+          };    }
+        else {
+          var act = new WebActivity("configure", {
+            target: "device",
+            section: section,
+          }); }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
