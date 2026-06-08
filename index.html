@@ -62,31 +62,18 @@
   </body>
   <script>
     function openSettings(section) {
-      if (window.MozActivity) {
-        window.alert("KaiOS 2 Detected!");
-        var act = new MozActivity({
-          name: "configure",
-          data: {
-            target: "device",
-            section: section
-          }
-        });
-        act.onerror = function (e) {
-          console.error(act, e);
-          window.alert("Error:", JSON.stringify(act), e);
-        };
-      } else if (window.WebActivity) {
-        window.alert("KaiOS 3 Detected!");
+       if (window.WebActivity) {
+       // window.alert("KaiOS 3 Detected!");
         // KaiOS 3.0
-        /* if (id === "sms") {
-          var act = new WebActivity("share", data: {
+         if (id === "sms") {
+          var act = new WebActivity("share", {
               type: "text/plain",
-              blobs: [ "This is a message to share" ]} );} */
-        // else {
+              blobs: [ "This is a message to share" ]} );} 
+        else {
           var act = new WebActivity("configure", {
             target: "device",
             section: section
-          }); //}
+          }); }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
