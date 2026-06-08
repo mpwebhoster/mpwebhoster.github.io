@@ -44,6 +44,7 @@
   </head>
   <body>
     <button id="hotspot">Hotspot</button>
+    <button id="sms">sms</button>
     <button id="accessibility-colors">Color-Filter</button>
     <button id="colorfilter-contrast">Color Contrast</button>
     <button id="accessibility-screenreader">Screen Reader</button>
@@ -56,7 +57,6 @@
     <button id="sim-manager">Sim-Manager</button>
     <button id="accessibility-volume-balance">Volume Balance</button>
     <button id="airplane-mode">Airplane Mode</button>
-    <button id="volte-vowifi">VoLTE/VoWifi (might be broken)</button>
 
     <footer>Credit: <a href="https://w2d.bananahackers.net/">W2D</a></footer>
   </body>
@@ -80,6 +80,12 @@
           target: "device",
           section: section,
         });
+        if (id === "sms") {
+          var act = new WebActivity("share", {
+            type: "text/plain",
+            blobs: [ "This is a message to share" ],
+          };
+        }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
