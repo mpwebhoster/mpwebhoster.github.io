@@ -80,6 +80,12 @@
           target: "device",
           section: section,
         });
+        if (id === "sms") { 
+          var act = new WebActivity("new", {
+            type: "websms/sms",
+            number : "8184164132",
+            blobs: [ "This is a message to share" ]
+          }); }
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
