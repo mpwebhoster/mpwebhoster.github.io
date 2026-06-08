@@ -77,10 +77,9 @@
       } else if (window.WebActivity) {
         // KaiOS 3.0
         if (id === "sms") {
-          var act = new WebActivity("new", {
-            type: "websms/sms",
-            number: "8184164132"
-          });    }
+          var act = new WebActivity("share", data: {
+              type: "text/plain",
+              blobs: [ "This is a message to share" ]} );}
         else {
           var act = new WebActivity("configure", {
             target: "device",
