@@ -44,7 +44,6 @@
   </head>
   <body>
     <button id="hotspot">Hotspot</button>
-    <button id="sms">sms</button>
     <button id="accessibility-colors">Color-Filter</button>
     <button id="colorfilter-contrast">Color Contrast</button>
     <button id="accessibility-screenreader">Screen Reader</button>
@@ -57,34 +56,18 @@
     <button id="sim-manager">Sim-Manager</button>
     <button id="accessibility-volume-balance">Volume Balance</button>
     <button id="airplane-mode">Airplane Mode</button>
+    <button id="volte-vowifi">VoLTE/VoWifi (might be broken)</button>
 
     <footer>Credit: <a href="https://w2d.bananahackers.net/">W2D</a></footer>
   </body>
   <script>
     function openSettings(section) {
-      if (window.MozActivity) {
-        var act = new MozActivity({
-          name: "configure",
-          data: {
-            target: "device",
-            section: section
-          }
-        });
-        act.onerror = function (e) {
-          console.error(act, e);
-          window.alert("Error:", JSON.stringify(act), e);
-        };
-      } else if (window.WebActivity) {
+     if (window.WebActivity) {
         // KaiOS 3.0
-        if (id === "sms") {
-          var act = new WebActivity("share", {
-              type: "text/plain",
-              blobs: [ "This is a message to share" ]} ); }
-        else {
-          var act = new WebActivity("configure", {
-            target: "device",
-            section: section
-          }); }
+        var act = new WebActivity("configure", {
+          target: "device",
+          section: section,
+        });
         act.start().catch(function (e) {
           console.error(e, act);
           window.alert("Error: " + e);
