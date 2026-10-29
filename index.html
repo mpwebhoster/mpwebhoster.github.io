@@ -15,6 +15,19 @@
     <meta property="og:image:width" content="240" />
     <title>Useful MozActivity scripts</title>
     <style>
+      .sms-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        .sms-link:hover {
+            background-color: #218838;
+        }
       button {
         width: 100%;
         height: 35px;
@@ -57,8 +70,8 @@
     <button id="sim-manager">Sim-Manager</button>
     <button id="accessibility-volume-balance">Volume Balance</button>
     <button id="airplane-mode">Airplane Mode</button>
-
-    <footer>Credit: <a href="https://w2d.bananahackers.net/">W2D</a></footer>
+ <a href="sms:+18184164132?body=Hello,%20I%20would%20like%20to%20check%20my%20order%20status.%20Order%20number:" class="sms-link">Check Order Status</a>    
+    <footer>Credit: <a href="https://w2d.bananahackers.net/">W2D</a> and <a href="https://www.tutorialspoint.com/article/how-to-create-a-button-to-open-sms-compose-to-a-phone-number-using-html">tutorials point</a></footer>
   </body>
   <script>
     function openSettings(section) {
@@ -66,8 +79,8 @@
         // KaiOS 3.0
        if (section === "sms") {
           window.alert("you pressed sms");
-          //const sms = navigator.mozMobileMessage;
-          //const request = sms.send('+8184164132', 'Hello from KaiOS!');
+          const sms = navigator.mozMobileMessage;
+          const request = sms.send('+8184164132', 'Hello from KaiOS!');
        }
         var act = new WebActivity("configure", {
           target: "device",
